@@ -1,13 +1,14 @@
 node{
    stage('SCM Checkout'){
-     git 'https://github.com/Gangesh2409/my-appp.git'
+     git 'https://github.com/Gangesh2409/SpringBoot.git'
    }
 
    stage('Compile-Package'){
       def mvnHome =  tool name: 'maven3', type: 'maven'   
       sh "${mvnHome}/bin/mvn clean package"
-	  sh 'mv target/myweb*.war target/newapp.war'
+	  sh 'mv target/Springboot2JpaAuditingApplication.class* target/springboot2-jpa-auditing-0.0.1-SNAPSHOT.jar'
    }
+}
 
    stage('Build Docker Imager'){
    sh 'docker build -t gangesh24/myweb:0.0.2 .'
