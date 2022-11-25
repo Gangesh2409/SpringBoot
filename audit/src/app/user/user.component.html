@@ -1,0 +1,30 @@
+<form [formGroup]="user" (ngSubmit)="submit(user)">
+    <div>
+      <label>
+        First Name:
+        <input formControlName="firstName" placeholder="Your name">
+      </label>
+    </div>
+    <div>
+        <label>
+          Last Name:
+          <input formControlName="lastName" placeholder="Your name">
+        </label>
+      </div>
+    <div>
+      <label>
+        Email Id:
+        <input formControlName="emailId" placeholder="Your email">
+      </label>
+    </div>
+    <button type="submit">Send</button>
+  </form>
+<br><br>
+<button (click)="displayAllUsers()">Get Users</button>
+<div *ngFor="let user of displayUsers">
+  <ul>
+    <li>{{user.firstName}}</li>
+    <li>{{user.lastName}}</li>
+    <li>{{user.emailId}}</li>
+  </ul>
+</div>
