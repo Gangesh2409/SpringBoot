@@ -6,9 +6,8 @@ node{
    stage('Compile-Package'){
       def mvnHome =  tool name: 'maven3', type: 'maven'   
       sh "${mvnHome}/bin/mvn clean package"
-	  sh 'mv target/Springboot2JpaAuditingApplication.class* target/springboot2-jpa-auditing-0.0.1-SNAPSHOT.jar'
+	  sh 'mv target/springboot2-jpa-auditing.jar* target/springboot2-jpa-auditing-0.0.1-SNAPSHOT.jar'
    }
-}
 
    stage('Build Docker Imager'){
    sh 'docker build -t gangesh24/myweb:0.0.2 .'
